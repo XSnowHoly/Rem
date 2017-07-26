@@ -1,0 +1,70 @@
+<div style="position:relative;z-index:999999" class="block">
+	<div class="page_header clearfix">
+    	<div style="height:85px; " class="block">
+    	<div class="logo f_l"><a href="index.php"><img src="./view/front/images/logo.gif"></a></div>
+        <div class="member_login f_l">
+        <font id="ECS_MEMBERZONE"><div id="append_parent"></div>
+ 
+ <?php if (isset($_SESSION['username']) && !empty($_SESSION['username'])) { ?>
+   您好，<font class="f_orange_bold"><?php echo $_SESSION['username']; ?></font>, 欢迎您回来！
+      <a href="#">用户中心</a>|
+       <a href="logout.php">退出</a>
+<?php } else { ?> 
+      欢迎光临雷姆商城！&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="login.php">登录</a> | <a href="reg.php">注册</a>
+<?php } ?>
+
+
+       
+
+
+
+ </font>            
+            </div>
+        <div class="page_top f_r">
+        
+                     <a href="#">诚聘代理</a>
+                         |
+                            <a href="flow.php">查看购物车</a>
+                         |
+                            <a href="#">会员中心</a>
+                         |
+                            <a href="#">优惠活动</a>
+                   	
+            <div class="telinfo">
+			<div><a href="#">
+ <img border="0" alt="雷姆QQ客服" src="http://wpa.qq.com/pa?p=2:247134821:41"></a></div>
+ </div>
+            
+            
+            
+        </div>
+        </div>
+    </div>
+
+  
+  <div id="menu_box">
+    <a href="index.php" id="menu_box_left">首页</a>
+    <ul class="menu_box_right">
+      <li><a href="category.php?cat_id=13">动漫服装</a></li>
+      <li><a href="category.php?cat_id=17">鞋帽</a></li>
+      <li><a href="category.php?cat_id=20">背包</a></li>
+    </ul>
+  </div>
+
+<div style="position:relative" class="cart_tip f_r">
+<img src="./view/front/images/car.gif">
+<a title="查看购物车" href="flow.php">
+  <?php 
+  $cart = CartTool::getCart();
+  $num = $cart->getNum();
+  $price = $cart->getPrice();
+  if (isset($num)) { ?>
+    购物车中有 <b><?php echo $num;?></b> 件商品 合计 <b>￥<?php echo $price;?>元</b>
+  <?php } else { ?>
+     购物车中有 <b>0</b> 件商品 合计 <b>￥0.00元</b>   
+  <?php } ?>
+        </a>
+<a style="position:absolute; top:30px; right:0px;" href="flow.php"><img src="./view/front/images/jiesuan.gif"></a>
+</div>
+</div>
